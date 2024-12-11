@@ -1,0 +1,21 @@
+menu {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5em;
+    flex-grow: 1;
+    border-color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom-style: solid;
+    border-bottom-width: .05em;
+    /*border-style: solid;*/
+}
+
+button{
+    font-size: 1em;
+    background-color:rgb(199, 156, 99);
+    border-right: 0.01rem solid black;
+    cursor: pointer;
+}
+html{
+    background-color: burlywood;
+}

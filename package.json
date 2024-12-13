@@ -1,0 +1,25 @@
+{
+  "name": "tony_portfolio",
+  "version": "1.0.0",
+  "description": "Website to about me and my projects",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/tony3129/Portfolio-Projects"
+  },
+  "keywords": [
+    "tony",
+    "liu",
+    "portfolio",
+    "resume",
+    "project"
+  ],
+  "author": "Tony Liu",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10"
+  }
+}

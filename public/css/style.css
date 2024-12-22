@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+header{
+    border-bottom-style: solid;
+    border-bottom-width: .05em;
+    border-color: rgb(190, 190, 190);
+    background-color: rgb(233, 237, 201);
+    padding-left: 2.75em;
+    padding-right: 2.75em;
+}
+
+.heading-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+    padding-bottom: 0;
+    padding-top: 0;
+    
+}
+menu {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+a, button{
+    font-size: 1.5em;
+    color: black;
+    background-color: rgb(233, 237, 201);
+    border: 0;
+    padding-right: .5em;
+    padding-left: .5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+a:hover{
+    background-color: rgb(204, 213, 174);
+    transform: scale(1.02);
+}
+
+main{
+    display: grid;
+    place-items: center;
+}
+
+#aboutMeSect{
+    display: grid;
+    place-items: center;
+}
+
+p{
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+#btnBackToTop{
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 15px;
+    padding-top: 6px;
+}
+

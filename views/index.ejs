@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Tony's Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/server.js" defer></script>
 </head>
 <body>
+    <%- include('partials/header') %>
     <main>
         <br>
         <div id="aboutMeSect">
@@ -42,8 +44,9 @@
                 I hope you enjoy looking through this website, and if you need to contact me for
                 anything, please fill out the contact form in the "Contact" link above.
 
-            </p>           
+            </p>  
         </div>
     </main>
+    <button onclick="backToTop()" id="btnBackToTop" title="Go to top">^</button>
 </body>
 </html>

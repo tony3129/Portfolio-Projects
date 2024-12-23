@@ -5,48 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tony's Portfolio</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="../server.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Doto:wght@100..900&display=swap" rel="stylesheet">
+    <script src="/js/sideNav.js" defer></script>
 </head>
 <body>
-    <%- include('./partials/header') %>
-    <main>
-        <br>
-        <div id="aboutMeSect">
-            <h2>About Me</h2>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <div id="main">
+        <div id="introSect">
+            <p>Hi, my name is</p>
+            <br>
+            <p id="name">Tony Liu</p>
             <br>
             <p>
-                Hello, my name is Tony. I once had a career in construction, I worked for a few construction management,
-                and consultancy firms as a Construction Estimator or Cost Consultant. I would basically 
-                develop estimates for how much Condos specifically would cost developers to build through 
-                the company I worked for. Honestly, it was a great career - good job stability, and it paid well. However, 
-                for the 4 years I spent in construction, I never really liked doing it. I thought as 
-                I got better at my job I would begin to like it, but that never happened. 
-                <br>
-                <br>
-                I originally didn't believe I had the brain to do software development, but
-                I've always been interested in Technology as a whole, even as I was working in
-                construction I would keep up to date with the latest software development and
-                hardware news. After excelling in a career that I didn't enjoy I believed I could
-                also excel in development, so I took the dive, and enrolled in the Computer Programming
-                diploma program at Seneca Polytechnic. I've completed the program with a 4.0 GPA
-                average, and believe that for someone of my level of experience I have a 
-                deeper understanding of development than my peers.
-                <br>
-                <br>
-                I am currently looking for any development role, I want to get my foot in the door
-                and learn as much as I can. I believe I am a hard worker - I will put in the time to learn what
-                I need and more. I work well in a team, I take responsibility for my tasks, and I do all I can to
-                help my co-workers. Due to the above qualities, every company I've worked at has told me that I can
-                always return to my previous positions if I chose to. If given the chance, I believe I would be a 
-                contributing member of any team. 
-                <br>
-                <br>
-                I hope you enjoy looking through this website, and if you need to contact me for
-                anything, please fill out the contact form in the "Contact" link above.
-
+                I'm a former consultant/estimator in construction, and am currently looking to break
+                into Software Quality Assurance/Development. 
+                To get to know me better, and to look at things
+                I've worked on, check out the links below
             </p>  
-        </div>
-    </main>
+            <%- include('./partials/links') %>
+        </div>        
+    </div>
     <button onclick="backToTop()" id="btnBackToTop" title="Go to top">^</button>
 </body>
 </html>

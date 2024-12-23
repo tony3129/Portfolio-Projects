@@ -7,26 +7,23 @@ header{
     border-bottom-width: .05em;
     border-color: rgb(190, 190, 190);
     background-color: rgb(233, 237, 201);
-    padding-left: 2.75em;
-    padding-right: 2.75em;
 }
 
-.heading-nav {
+
+#indexLinks{
     display: flex;
-    justify-content: space-between;
-    padding: .5em;
-    padding-bottom: 0;
-    padding-top: 0;
-    
+    justify-content: flex-start;
+    margin-left: 4em;
+    margin-top: 1em;
 }
-menu {
+
+#linksContainer {
     display: flex;
-    justify-content: flex-end;
     padding-bottom: 0;
     padding-top: 0;
 }
 
-a, button{
+a, button, #openMenu{
     font-size: 1.5em;
     color: black;
     background-color: rgb(233, 237, 201);
@@ -36,25 +33,47 @@ a, button{
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-a:hover{
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+a:hover, #openMenu:hover{
     background-color: rgb(204, 213, 174);
     transform: scale(1.02);
 }
 
-main{
-    display: grid;
-    place-items: center;
+#main{
+    display: flex;
+    transition: margin-left .5s ease;
+    padding: 20px;
 }
 
-#aboutMeSect{
-    display: grid;
-    place-items: center;
+#introSect{
+    display: block;
+    margin-top: 6em;
+    margin-left: 6em;
 }
 
 p{
-    margin-left: 4em;
-    margin-right: 4em;
+    margin-left: 4em; /* Set consistent left margin */
+    margin-right: 4em; /* Set consistent right margin */
+    text-align: left; /* Align text to the left */
+    width: 750px;
 }
+
+#name {
+    font-family: "Doto", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+      "ROND" 0;
+    font-size: 65px;
+    margin-left: .99em;
+}
+
 
 #btnBackToTop{
     display: none;
@@ -64,4 +83,38 @@ p{
     border-radius: 15px;
     padding-top: 6px;
 }
+
+#sideNav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(233, 237, 201);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#sideNav a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#sideNav .closeBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    padding: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
 

@@ -41,6 +41,7 @@ a, button, #openMenu{
 
 #main{
     display: flex;
+    flex-direction: column;
     transition: margin-left .5s ease;
     padding: 20px;
     align-items: center;
@@ -126,6 +127,7 @@ h2{
     height: 100vh;
     width: 75%;
     margin: 0;
+    display: flex;
 }
   
 .iframe-wrapper iframe {

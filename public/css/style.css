@@ -1,12 +1,14 @@
 *{
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #4d4b4b;;
 }
 header{
     border-bottom-style: solid;
     border-bottom-width: .05em;
     border-color: rgb(190, 190, 190);
     background-color: rgb(233, 237, 201);
+    display: flex;
 }
 
 
@@ -25,8 +27,6 @@ header{
 
 a, button, #openMenu{
     font-size: 1.5em;
-    color: black;
-    background-color: rgb(233, 237, 201);
     border: 0;
     padding-right: .5em;
     padding-left: .5em;
@@ -37,29 +37,24 @@ a, button, #openMenu{
 .links{
     display: flex;
     justify-content: space-between;
-    background-color: white;
-}
-a:hover, #openMenu:hover{
-    background-color: rgb(204, 213, 174);
-    transform: scale(1.02);
 }
 
 #main{
     display: flex;
     transition: margin-left .5s ease;
     padding: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 #introSect{
     display: block;
-    margin-top: 6em;
-    margin-left: 6em;
 }
 
 p{
-    margin-left: 4em; /* Set consistent left margin */
-    margin-right: 4em; /* Set consistent right margin */
-    text-align: left; /* Align text to the left */
+    margin-left: 4em;
+    margin-right: 4em; 
+    text-align: left;
     width: 750px;
 }
 
@@ -78,6 +73,7 @@ p{
 #btnBackToTop{
     display: none;
     position: fixed;
+    background-color: rgb(233, 237, 201);
     right: 20px;
     bottom: 20px;
     border-radius: 15px;
@@ -112,9 +108,34 @@ p{
     right: 0;
     font-size: 36px;
     padding: 0;
+    margin-top: 0;
     padding-right: 10px;
     padding-left: 10px;
 }
 
+h2{
+    margin-left: 2.7em;
+}
 
+#openMenu{
+    display: flex; 
+    align-items: center;
+}
+
+.iframe-wrapper {
+    height: 100vh;
+    width: 75%;
+    margin: 0;
+}
+  
+.iframe-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+a:hover, button:hover, #openMenu:hover, #btnBackToTop:hover{
+    background-color: rgb(204, 213, 174);
+    transform: scale(1.02);
+}
 

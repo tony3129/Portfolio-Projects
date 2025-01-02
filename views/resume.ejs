@@ -6,13 +6,17 @@
     <title>Resume</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="/js/sideNav.js"  defer></script>
+    <script src="/js/backToTop.js"  defer></script>
 </head>
 <body>
     <header>
         <%- include('./partials/header') %>
     </header>
     <div id="main">
-        
+        <div class="iframe-wrapper">
+            <iframe src="/assets/resume.pdf"></iframe>
+          </div>
     </div>
+    <%- include('./partials/backToTop') %>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div id="main">
         <div id="form">
             <h2>Contact Form</h2>
-            <form id="contactInfo" action="/submit-form" method="POST">
+            <form id="contactInfo" action="/contact" method="POST">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
     
@@ -24,6 +24,12 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
+        <!-- utilizing ejs if statements to show successful or failure in sending form -->
+        <% if(message) { %>
+            <div id="formSentNotif">
+                <p><%= message %></p>
+            </div>
+        <% } %>
     </div>
     <%- include('./partials/backToTop') %>
 </body>

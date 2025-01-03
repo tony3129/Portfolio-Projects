@@ -12,10 +12,18 @@
         <%- include('./partials/header') %>
     </header>
     <div id="main">
-        <h2>Contact Form</h2>
-        <form id="contactInfo" action="/submit-form" method="POST">
-
-        </form>
+        <div id="form">
+            <h2>Contact Form</h2>
+            <form id="contactInfo" action="/submit-form" method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Message:</label>
+                <textarea id="message" name="message required"></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
     <%- include('./partials/backToTop') %>
 </body>

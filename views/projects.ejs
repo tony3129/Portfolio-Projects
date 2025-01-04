@@ -11,8 +11,20 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <div id="main">
-        
+    <div class="main" id="gridContainer">
+        <% projects.forEach(project =>{ %>
+            <a href="<%= project.link %>" class="card">
+                <img src="<%= project.img %>" alt="<%= project.alt %>" style="width:100%">
+                <div class="cardContainer">
+                    <h4><b>
+                        <%= project.title%>
+                    </b></h4>
+                    <p>
+                        <%= project.desc %>
+                    </p>
+                </div>
+            </a>
+        <% }); %>
     </div>
     <%- include('./partials/backToTop') %>
 </body>

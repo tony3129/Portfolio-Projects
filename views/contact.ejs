@@ -11,7 +11,7 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <div id="main">
+    <div class="main">
         <div id="form">
             <h2>Contact Form</h2>
             <form id="contactInfo" action="/contact" method="POST">
@@ -21,7 +21,7 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message"></textarea>
                 
-                <button type="submit">Submit</button>
+                <button id="contactSubmit" type="submit">Submit</button>
             </form>
         </div>
         <!-- utilizing ejs if statements to show successful or failure in sending form -->

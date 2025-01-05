@@ -5,6 +5,10 @@ const projects = require('./src/projects.js');
 const bodyParser = require('body-parser');
 //to be able to send emails from contact form
 const nodeMailer = require('nodemailer');
+//connection initialization and table structure
+const sequelize = require('./db/connection.js');
+const itemStructure = require('./db/models/itemStructure.js')
+
 //boilerplate express config
 const express = require('express');
 const app = express();
@@ -14,6 +18,12 @@ app.set('views', './views');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));
 
+//establish connection to database for wish list, connection is through /db/connection.js
+sequelize.authenticate().then(()=>{
+    console.log('Connection established successfully.');
+}).catch((err)=>{
+    console.log('Unable to connect to database: ',err)
+});
 
 app.get('/', (req,res)=>{
     res.render('index');

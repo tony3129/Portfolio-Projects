@@ -191,7 +191,7 @@ app.post('/wishlist/add', async (req,res)=>{
             link: link,
             userID: req.session.user.userID,
         })
-
+        //send json response, so appending new card can be done
         res.json(newItem);
     } catch (err) {
         console.log(err);
@@ -207,10 +207,11 @@ app.post('/wishlist/delete/:id', async (req,res)=>{
         await itemStructure.destroy({
             where: {itemID: id, userID: req.session.user.userID}
         });
-        //redirect becomes redundant
+        //redirect becomes redundant with jquery
         res.redirect('/wishlist');
     } catch(err){
         console.log(err);
+        //redirect becomes redundant with jquery
         res.redirect('/wishlist');
     }
 })

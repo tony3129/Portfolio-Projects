@@ -22,6 +22,11 @@
             <input type="email" id="email" name="email" required>
             <button type="submit">Register</button>
             <a href="/login">Login</a>
+            <% if(message) { %>
+                <div id="registerMessage">
+                    <p><%= message %></p>
+                </div>
+            <% } %>
         </form>
     </div>
     <%- include('./partials/backToTop') %>

@@ -20,6 +20,11 @@
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
             <a href="/register">Register</a>
+            <% if(message) { %>
+                <div id="loginMessage">
+                    <p><%= message %></p>
+                </div>
+            <% } %>
         </form>
     </div>
     <%- include('./partials/backToTop') %>

@@ -179,11 +179,12 @@ app.post('/login', async (req,res)=>{
 
 //if form is submitted, create a new entry
 app.post('/wishlist/add', async (req,res)=>{
+    console.log(req.body);
     const { title, desc, price, link } = req.body;
 
     try{
         //don't include itemID as its auto incremented
-        await itemStructure.create({
+        const newItem = await itemStructure.create({
             title: title,
             desc: desc,
             price: price,
@@ -191,7 +192,7 @@ app.post('/wishlist/add', async (req,res)=>{
             userID: req.session.user.userID,
         })
 
-        res.redirect('/wishlist');
+        res.json(newItem);
     } catch (err) {
         console.log(err);
     }
@@ -206,7 +207,7 @@ app.post('/wishlist/delete/:id', async (req,res)=>{
         await itemStructure.destroy({
             where: {itemID: id, userID: req.session.user.userID}
         });
-
+        //redirect becomes redundant
         res.redirect('/wishlist');
     } catch(err){
         console.log(err);

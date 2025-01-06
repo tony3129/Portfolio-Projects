@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/wishList/wishList.js"></script>
     <script src="/js/sideNav.js" defer></script>
     <script src="/js/backToTop.js"  defer></script>
 </head>
@@ -29,23 +31,23 @@
                             </p>
                         </div>
                     </a>
-                    <form action="/wishlist/delete/<%= item.itemID %>" method="POST">
+                    <form class="deleteWishList"action="/wishlist/delete/<%= item.itemID %>" method="POST">
                         <button type="submit">Delete</button>
                     </form>
                 </div>
             <% }); %>
-        <form action="/wishlist/add" method="POST">
-            <label for="title">Item Name:</label>
-            <input type="text" id="title" name="title" required>
-            <label for="desc">Description:</label>
-            <textarea id="desc" name="desc"></textarea>
-            <label for="price">Price:</label>
-            <input type="text" id="price" name="price">
-            <label for="link">Link:</label>
-            <input type="text" id="link" name="link" required>
-            <button type="submit">Add Item</button>
-        </form>
     </div>
+    <form id ="addWishList" action="/wishlist/add" method="POST">
+        <label for="title">Item Name:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="desc">Description:</label>
+        <textarea id="desc" name="desc"></textarea>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price">
+        <label for="link">Link:</label>
+        <input type="text" id="link" name="link" required>
+        <button type="submit">Add Item</button>
+    </form>
     <%- include('./partials/backToTop') %>
 </body>
 </html>

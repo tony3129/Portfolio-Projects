@@ -6,15 +6,16 @@
     <title>Contact Form</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="/js/sideNav.js"  defer></script>
+    <script src="/js/backToTop.js"  defer></script>
 </head>
 <body>
     <header>
         <%- include('./partials/header') %>
     </header>
-    <div class="main">
-        <div id="form">
+    <div id="main">
+        <div class="formFormatContainer">
             <h2>Contact Form</h2>
-            <form id="contactInfo" action="/contact" method="POST">
+            <form id="contactInfo" class="formFormatInfo" action="/contact" method="POST">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
     

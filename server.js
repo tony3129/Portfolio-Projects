@@ -18,6 +18,7 @@ const requireLogin = require('./middleware/wishListLogin.js');
 const express = require('express');
 const app = express();
 
+//let express know to use ejs files to render views
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(express.static('public'));
@@ -66,6 +67,14 @@ app.get('/about', (req,res)=>{
     res.render('about');
 })
 
+app.get('/linkedin', (req,res)=>{
+    res.redirect('https://www.linkedin.com/in/tony-liu-11a791189/')
+})
+
+app.get('/github', (req,res)=>{
+    res.redirect('https://github.com/tony3129')
+})
+
 app.get('/snakeGame',(req,res)=>{
     res.render('snake');
 })
@@ -90,6 +99,7 @@ app.get('/logout', (req, res)=>{
 app.get('/wishlist', requireLogin, async (req,res)=>{
     try{
         const items = await itemStructure.findAll({ where: { userID: req.session.user.userID}});
+        //pass all items found in database, and enable logout in 
         res.render('wishList', {items: items});
     } catch (err) {
         console.log(err);
@@ -123,7 +133,7 @@ app.post('/contact', (req, res) => {
             res.render('contact', {message: 'Form successfully submitted'});
         })
         .catch(err => {
-            console.log(err);
+            console.log('Error sending email: ' + err);
             res.render('contact', {message: 'Error submitting form. Please try again later'});
         });
 });
@@ -164,12 +174,11 @@ app.post('/login', async (req,res)=>{
         if(!passMatch){
             res.render('login', {message: 'Invalid username or password'});
         }
-
+        //if user is found and passwords match, send to wishlist route with modified req params
         req.session.user= {
             userID: user.userID,
             username: user.userName,
         };
-
         res.redirect('wishlist');
     } catch (err) {
         console.log(err);

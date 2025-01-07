@@ -12,20 +12,23 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <div class="loginContainer">
-        <form action="/login" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-            <a href="/register">Register</a>
-            <% if(message) { %>
-                <div id="loginMessage">
-                    <p><%= message %></p>
-                </div>
-            <% } %>
-        </form>
+    <div id="main">
+        <div class="formFormatContainer">
+            <h2>Wishlist Login</h2>
+            <form class="formFormatInfo" action="/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+                <a href="/register">No account? Register here</a>
+                <% if(message) { %>
+                    <div id="loginMessage">
+                        <p><%= message %></p>
+                    </div>
+                <% } %>
+            </form>
+        </div>
     </div>
     <%- include('./partials/backToTop') %>
 </body>

@@ -4,7 +4,7 @@ const apiURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 //variables to extract information and add information later
 const locationInput = document.getElementById('locationInput');
-const searchBtn = document.getElementById('weatherSearch');
+const searchBtn = document.getElementById('weatherSubmit');
 const locationElement = document.getElementById('location');
 const tempElement = document.getElementById('temp');
 const descElement = document.getElementById('desc');
@@ -22,6 +22,9 @@ function fetchWeather(location){
     //send req to OpenWeather, and process the response in json format
     fetch(url).then(response =>{
         if(!response.ok){
+            locationElement.textContent = 'Invalid City Name, please check the spelling';
+            tempElement.textContent = '';
+            descElement.textContent = '';
             throw new Error('City not found');
         }
         return response.json();

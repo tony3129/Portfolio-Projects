@@ -14,13 +14,15 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <div class="weatherContainer">
-        <input type="text" id="locationInput" placeholder="Enter a city">
-        <button id="weatherSearch">Search</button>
-        <div class="weather-info">
-            <h2 id="location"></h2>
-            <p id="temp"></p>
-            <p id="desc"></p>
+    <div id="main">
+        <div id="weatherContainer">
+            <input type="text" id="locationInput" placeholder="Enter a city">
+            <button id="weatherSubmit">Search</button>
+            <div class="weather-info">
+                <h2 id="location"></h2>
+                <p id="temp"></p>
+                <p id="desc"></p>
+            </div>
         </div>
     </div>
     <%- include('./partials/backToTop') %>

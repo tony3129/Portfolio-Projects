@@ -38,28 +38,27 @@ $(document).ready(function(){
                 //take json response from server and append it to container
                 let newItem = $(
                     `
-                    <div class="card">
-                        <a href="${response.link}" class="card">
-                            <div class="cardContainer">
-                                <h4><b>
-                                    ${response.title}
-                                </b></h4>
-                                <p>
-                                    ${response.desc}
-                                </p>
-                                <p>
-                                    ${response.price}
-                                </p>
-                            </div>
-                        </a>
-                        <form class="deleteWishList"action="/wishlist/delete/${response.itemID}" method="POST">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </div>
+                    <a href="${response.link}" class="card" style="display: none;">
+                        <div class="cardDetailsContainer">
+                            <h4><b>
+                                ${response.title}
+                            </b></h4>
+                            <p>
+                                ${response.desc}
+                            </p>
+                            <p>
+                                ${response.price}
+                            </p>
+                            <form class="deleteWishList"action="/wishlist/delete/${response.itemID}" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </a>
                     `
                 );
 
-                $('.wishListContainer').append(newItem);
+                $('.gridContainer').append(newItem);
+                newItem.fadeIn(400);
             }
         })
     });

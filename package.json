@@ -2,10 +2,10 @@
   "name": "tony_portfolio",
   "version": "1.0.0",
   "description": "Website to about me and my projects",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node api/index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

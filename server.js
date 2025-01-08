@@ -9,8 +9,8 @@ const bodyParser = require('body-parser');
 const nodeMailer = require('nodemailer');
 //connection initialization and table structure
 require('pg');
-const Sequelize = require('sequelize');
-// const sequelize = require('./db/connection.js');
+// const Sequelize = require('sequelize');
+const sequelize = require('./db/connection.js');
 const itemStructure = require('./db/models/itemStructure.js')
 const userStructure = require('./db/models/userStructure.js')
 //bcrypt and clientSessions for login functionality
@@ -38,14 +38,14 @@ app.use(clientSessions({
     activeDuration: 5 * 60 * 1000,
 }))
 
-const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD,{
-    host: process.env.PGHOST,
-    dialect: 'postgres',
-    port: 5432,
-    dialectOptions: {
-        ssl: { rejectUnauthorized: false},
-    },
-});
+// const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD,{
+//     host: process.env.PGHOST,
+//     dialect: 'postgres',
+//     port: 5432,
+//     dialectOptions: {
+//         ssl: { rejectUnauthorized: false},
+//     },
+// });
 
 
 //establish connection to database for wish list, connection is through /db/connection.js

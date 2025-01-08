@@ -232,3 +232,5 @@ app.post('/wishlist/delete/:id', async (req,res)=>{
 app.listen(HTTP_PORT, () => {
     console.log('Server is running on: ' + HTTP_PORT);
 });
+
+module.exports = app;

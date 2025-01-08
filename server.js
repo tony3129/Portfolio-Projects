@@ -1,5 +1,7 @@
 //to use variables within .env file
 require('dotenv').config({path: './privateInfo.env'});
+require('dotenv').config();
+const path = require('path');
 const projects = require('./src/projects.js');
 //parser to get info sent in contact form
 const bodyParser = require('body-parser');
@@ -14,14 +16,16 @@ const bcrypt = require('bcrypt');
 const clientSessions = require('client-sessions');
 const requireLogin = require('./middleware/wishListLogin.js');
 
+const HTTP_PORT = process.env.PORT || 8080;
+
 //boilerplate express config
 const express = require('express');
 const app = express();
 
 //let express know to use ejs files to render views
 app.set('view engine', 'ejs');
-app.set('views', './views');
-app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(clientSessions({
     cookieName: 'session',
@@ -150,7 +154,7 @@ app.post('/register', async (req, res)=>{
             email: email,
             password: hashPassword
         });
-        res.redirect('/login');
+        res.render('login', {message: 'Registration successful'});
     } catch (err){
         //reload register page with error message
         console.log(err)
@@ -225,6 +229,6 @@ app.post('/wishlist/delete/:id', async (req,res)=>{
     }
 })
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+app.listen(HTTP_PORT, () => {
+    console.log('Server is running on: ' + HTTP_PORT);
 });

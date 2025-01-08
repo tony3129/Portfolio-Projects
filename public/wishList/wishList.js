@@ -1,26 +1,28 @@
 $(document).ready(function(){
-    $('.deleteWishList').on('submit', function(event){
-        //stop from from submitting
-        event.preventDefault();
-
-        let form = $(this);
-        //take action value from the targetted form
-        let actionURL = form.attr('action');
-        //send ajax post to delete item
-        $.ajax({
-            url: actionURL,
-            method: 'POST',
-            success: function(response) {
-                //fade out the item, then actually delete it instead of just hiding it
-                form.closest('.card').fadeOut(400, function(){
-                    $(this).remove()
-                });
-            },
-            error: function(err) {
-                console.log('Error deleting item: ' + err);
-            }
-        })
-    });
+    function bindDeleteEvent() {
+        $('.deleteWishList').off('submit').on('submit', function(event){
+            //stop from from submitting
+            event.preventDefault();
+    
+            let form = $(this);
+            //take action value from the targetted form
+            let actionURL = form.attr('action');
+            //send ajax post to delete item
+            $.ajax({
+                url: actionURL,
+                method: 'POST',
+                success: function(response) {
+                    //fade out the item, then actually delete it instead of just hiding it
+                    form.closest('.card').fadeOut(400, function(){
+                        $(this).remove()
+                    });
+                },
+                error: function(err) {
+                    console.log('Error deleting item: ' + err);
+                }
+            })
+        });
+    }
 
     $('#addWishList').on('submit', function(event){
         event.preventDefault();
@@ -59,7 +61,11 @@ $(document).ready(function(){
 
                 $('.gridContainer').append(newItem);
                 newItem.fadeIn(400);
+
+                bindDeleteEvent();
             }
         })
     });
+
+    bindDeleteEvent();
 });

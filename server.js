@@ -5,7 +5,7 @@
 require('dotenv').config({path: './privateInfo.env'});
 require('dotenv').config();
 const path = require('path');
-const projects = require('./src/projects.js');
+const projects = require('./src/data/projects.js');
 //parser to get info sent in contact form
 const bodyParser = require('body-parser');
 //to be able to send emails from contact form
@@ -60,6 +60,10 @@ sequelize.sync({force:false}).then(()=>{
 app.get('/', (req,res)=>{
     res.render('index');
 });
+
+app.get('/liveDemo', (req,res)=>{
+    res.render('liveDemo', {projects});
+})
 
 app.get('/projects', (req,res)=>{
     res.render('projects', {projects});

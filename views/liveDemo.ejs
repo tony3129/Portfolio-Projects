@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Githubs</title>
+    <title>Live Demos</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="/js/sideNav.js" defer></script>
     <script src="/js/backToTop.js"  defer></script>
@@ -14,18 +14,20 @@
     </header>
     <div id="main">
         <div id="projectContainer">
-            <h2>Project Githubs</h2>
+            <h2>Live Demos</h2>
             <div class="gridContainer">
                 <% projects.forEach(project =>{ %>
-                    <a href="<%= project.github %>" class="card">
-                        <div class="cardImgContainer">
-                            <img src="<%= project.img %>" alt="<%= project.alt %>">
-                        </div>
-                        <div class="cardDetailsContainer">
-                            <h4><b><%= project.title%></b></h4>
-                            <p><%= project.desc %></p>
-                        </div>
-                    </a>
+                    <% if (project.live) { %>
+                        <a href="<%= project.link %>" class="card">
+                            <div class="cardImgContainer">
+                                <img src="<%= project.img %>" alt="<%= project.alt %>">
+                            </div>
+                            <div class="cardDetailsContainer">
+                                <h4><b><%= project.title%></b></h4>
+                                <p><%= project.desc %></p>
+                            </div>
+                        </a>
+                    <% } %>
                 <% }); %>
             </div>
         </div>

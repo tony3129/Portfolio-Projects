@@ -8,12 +8,13 @@ const bodyParser = require('body-parser');
 //to be able to send emails from contact form
 const nodeMailer = require('nodemailer');
 //connection initialization and table structure
+//require pg needed to work on vercel
 require('pg');
-// const Sequelize = require('sequelize');
 const sequelize = require('./db/connection.js');
 const itemStructure = require('./db/models/itemStructure.js')
 const userStructure = require('./db/models/userStructure.js')
 //bcrypt and clientSessions for login functionality
+//bcryptjs needed to work on vercel
 const bcrypt = require('bcryptjs');
 const clientSessions = require('client-sessions');
 const requireLogin = require('./middleware/wishListLogin.js');
@@ -37,16 +38,6 @@ app.use(clientSessions({
     //extend session by 5 minutes if active
     activeDuration: 5 * 60 * 1000,
 }))
-
-// const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD,{
-//     host: process.env.PGHOST,
-//     dialect: 'postgres',
-//     port: 5432,
-//     dialectOptions: {
-//         ssl: { rejectUnauthorized: false},
-//     },
-// });
-
 
 //establish connection to database for wish list, connection is through /db/connection.js
 sequelize.authenticate().then(()=>{

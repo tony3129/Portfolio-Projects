@@ -1,6 +1,6 @@
 $(document).ready(function(){
     function bindDeleteEvent() {
-        $('.deleteWishList').off('submit').on('submit', function(event){
+        $('.deleteWishList').on('submit', function(event){
             //stop from from submitting
             event.preventDefault();
     

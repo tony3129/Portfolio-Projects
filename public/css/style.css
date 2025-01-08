@@ -111,7 +111,8 @@ button,
 #introContainer, 
 .formFormatContainer, 
 #registerContainer,
-#projectContainer{
+#projectContainer,
+#wishListContainer{
     width: 100%;
     max-width: 1000px;
 }
@@ -231,15 +232,14 @@ button,
 
 @media (max-width: 800px) {
     .gridContainer{
-        grid-template-columns: 1fr; /* Single column */
-        gap: 20px;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     } 
-
 }
 
-#projectContainer{
+#projectContainer, #wishListContainer{
     display: flex;
     flex-direction: column;
 }

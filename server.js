@@ -14,7 +14,7 @@ const Sequelize = require('sequelize');
 const itemStructure = require('./db/models/itemStructure.js')
 const userStructure = require('./db/models/userStructure.js')
 //bcrypt and clientSessions for login functionality
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const clientSessions = require('client-sessions');
 const requireLogin = require('./middleware/wishListLogin.js');
 

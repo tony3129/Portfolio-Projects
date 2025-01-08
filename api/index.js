@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 //to be able to send emails from contact form
 const nodeMailer = require('nodemailer');
 //connection initialization and table structure
-const sequelize = require('./db/connection.js');
+const sequelize = require('../db/connection.js');
 const itemStructure = require('../db/models/itemStructure.js')
 const userStructure = require('../db/models/userStructure.js')
 //bcrypt and clientSessions for login functionality

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //wrap deleteWishList within bindDeleteEvents
     function bindDeleteEvent() {
         $('.deleteWishList').on('submit', function(event){
             //stop from from submitting
@@ -67,5 +68,6 @@ $(document).ready(function(){
         })
     });
 
+    //makes sure .deleteWishList functionality works on existing items
     bindDeleteEvent();
 });

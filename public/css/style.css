@@ -1,20 +1,44 @@
 *{
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #4d4b4b;;
+    color: #4d4b4b;
+}
+
+header{
+    display: flex;
+    border-bottom-style: solid;
+    border-bottom-width: .05em;
+    border-color: rgb(190, 190, 190);
+    background-color: rgb(233, 237, 201);
+}
+
+a, 
+button, 
+#openMenu{
+    font-size: 1.5em;
+    border: 0;
+    padding-right: .5em;
+    padding-left: .5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#openMenu{
+    display: flex; 
+    align-items: center;
 }
 
 #sideNav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
+    height: 100%; 
+    width: 0; 
     position: fixed; /* stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    z-index: 1; /* stay on top */
+    top: 0; 
     left: 0;
     background-color: rgb(233, 237, 201);
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    overflow-x: hidden; /* disable horizontal scroll */
+    padding-top: 60px; /* place content 60px from the top */
+    transition: 0.5s; /*transition effect to slide in the sidenav */
 }
 
 #sideNav a{
@@ -24,29 +48,6 @@
     color: #818181;
     display: block;
     transition: 0.3s;
-}
-
-@media (max-width: 800px) {
-    .sideNavContainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-    }
-    .sideNavContainer a{
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        width: 100%;
-    }
-    #sideNav .closeBtn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 36px;
-        color: #818181;
-    }
 }
 
 #sideNav .closeBtn{
@@ -62,37 +63,6 @@
 
 #sideNav #logout{
     display: none;
-}
-
-header{
-    display: flex;
-    border-bottom-style: solid;
-    border-bottom-width: .05em;
-    border-color: rgb(190, 190, 190);
-    background-color: rgb(233, 237, 201);
-}
-
-.wishListHeader{
-    display: flex;
-    justify-content: space-between;
-}
-
-#linksContainer {
-    display: flex;
-    padding-bottom: 0;
-    padding-top: 0;
-    margin-top: 1em;
-}
-
-a, 
-button, 
-#openMenu{
-    font-size: 1.5em;
-    border: 0;
-    padding-right: .5em;
-    padding-left: .5em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #main{
@@ -146,28 +116,11 @@ button,
     font-size: 65px;
 }
 
-@media (max-width: 800px) {
-    #main {
-        padding: 10px;
-    }
-    header {
-        flex-wrap: wrap; 
-    }
-
-    #name {
-        font-size: 30px; 
-
-    }
-    .introContent, 
-    #linksContainer {
-        display: flex;
-        flex-wrap: wrap;
-
-    }
-
-    #linksContainer{
-        justify-content: space-around;
-    }
+#linksContainer {
+    display: flex;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-top: 1em;
 }
 
 #btnBackToTop{
@@ -178,29 +131,6 @@ button,
     bottom: 20px;
     border-radius: 15px;
     padding-top: 6px;
-}
-
-@media (max-width: 800px) {
-    #aboutMeContainer h2{
-        font-size: x-large;
-    }
-
-    .aboutMeContent, 
-    .introContent {
-        font-size: large;
-    }
-
-    #sideNav {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-    }  
-}
-
-#openMenu{
-    display: flex; 
-    align-items: center;
 }
 
 .iframe-wrapper {
@@ -225,23 +155,19 @@ button,
 .gridContainer{
     display: grid;
     grid-template-columns: repeat(3, 300px); /* 3 columns, each 300px wide */
-    grid-auto-rows: 400px; /* Each row is 300px */
-    gap: 50px; /* Adjust the gap between items */
+    grid-auto-rows: 400px; /* Each row is 400px */
+    gap: 50px; /* give spacing to each card, so transition doesn't overlap other cards */
     margin-bottom: 20px;
-}
-
-@media (max-width: 800px) {
-    .gridContainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    } 
 }
 
 #projectContainer, #wishListContainer{
     display: flex;
     flex-direction: column;
+}
+
+.wishListHeader{
+    display: flex;
+    justify-content: space-between;
 }
 
 .card {
@@ -286,5 +212,74 @@ button:hover,
 
 .deleteWishList button:hover{
     background-color: rgb(216, 178, 178) !important;
+}
+
+@media (max-width: 800px) {
+    .sideNavContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+    .sideNavContainer a{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+    }
+    #sideNav .closeBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 36px;
+        color: #818181;
+    }
+
+    #sideNav {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+
+    #main {
+        padding: 10px;
+    }
+    header {
+        flex-wrap: wrap; 
+    }
+
+    #name {
+        font-size: 30px; 
+
+    }
+    .introContent {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #linksContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #aboutMeContainer h2{
+        font-size: x-large;
+    }
+
+    .aboutMeContent, 
+    .introContent {
+        font-size: large;
+    }
+
+    .gridContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } 
 }
 

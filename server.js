@@ -16,7 +16,7 @@ const bcrypt = require('bcrypt');
 const clientSessions = require('client-sessions');
 const requireLogin = require('./middleware/wishListLogin.js');
 
-const HTTP_PORT = process.env.PORT || 8080;
+const HTTP_PORT = process.env.PORT || 3000;
 
 //boilerplate express config
 const express = require('express');

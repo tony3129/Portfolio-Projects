@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 //to be able to send emails from contact form
 const nodeMailer = require('nodemailer');
 //connection initialization and table structure
+require('pg');
 const sequelize = require('./db/connection.js');
 const itemStructure = require('./db/models/itemStructure.js')
 const userStructure = require('./db/models/userStructure.js')
@@ -24,8 +25,8 @@ const app = express();
 
 //let express know to use ejs files to render views
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, '/views'));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(clientSessions({
     cookieName: 'session',

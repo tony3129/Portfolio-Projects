@@ -27,14 +27,6 @@ input{
         align-items: center;
         justify-content: center;
     }
-}
-
-@media (max-width: 480px) {
-    #main{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     #weatherContainer{
         max-width: 80%;
     }

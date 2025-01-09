@@ -28,6 +28,26 @@ const projects = [
         link: '/wishlist',
         github: 'https://github.com/tony3129/Wishlist',
         alt: 'Wishlist App Logo'
+    },
+    {
+        title: 'Patient Triage System',
+        desc: 'C++',
+        //taken from: https://www.bairesdev.com/blog/what-is-c-plus-plus/
+        img: './assets/c++Logo.avif',
+        live: false,
+        link: '',
+        github: 'https://github.com/tony3129/Patient-Triage-System',
+        alt: 'C++ Logo'
+    },
+    {
+        title: 'Vet Patient Management System',
+        desc: 'C',
+        //taken from: https://commons.wikimedia.org/wiki/File:C_Programming_Language.svg
+        img: './assets/cLogo.png',
+        live: false,
+        link: '',
+        github: 'https://github.com/tony3129/Vet-Clinic-Patient-Management',
+        alt: 'C++ Logo'
     }
 ]
 

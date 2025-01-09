@@ -52,7 +52,7 @@ const projects = [
     {
         title: 'Android Store',
         desc: 'Java, Android SDK',
-        //taken from: https://fabrikbrands.com/branding-matters/logofile/android-logo-history-symbol-meaning-and-evolution/
+        //taken from: https://commons.wikimedia.org/wiki/File:Android_logo_2019_%28stacked%29.svg
         img: './assets/androidLogo.png',
         live: false,
         link: '',

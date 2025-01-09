@@ -53,7 +53,7 @@ const projects = [
         title: 'Android Store',
         desc: 'Java, Android SDK',
         //taken from: https://commons.wikimedia.org/wiki/File:Android_logo_2019_%28stacked%29.svg
-        img: './assets/androidLogo.png',
+        img: './assets/androidLogo2.png',
         live: false,
         link: '',
         github: 'https://github.com/tony3129/Android-Store',

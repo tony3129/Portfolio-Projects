@@ -171,7 +171,7 @@ app.post('/register', async (req, res)=>{
         res.render('register', {message: 'Unable to register. Please try again later'})
     }
 })
-//verify user credentials, start client session for ser
+//verify user credentials, start client session for user
 app.post('/login', async (req,res)=>{
     const { username, password } = req.body;
 

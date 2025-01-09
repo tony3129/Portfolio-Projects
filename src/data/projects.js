@@ -48,6 +48,16 @@ const projects = [
         link: '',
         github: 'https://github.com/tony3129/Vet-Clinic-Patient-Management',
         alt: 'C++ Logo'
+    },
+    {
+        title: 'Android Store',
+        desc: 'Java, Android SDK',
+        //taken from: https://fabrikbrands.com/branding-matters/logofile/android-logo-history-symbol-meaning-and-evolution/
+        img: './assets/androidLogo.png',
+        live: false,
+        link: '',
+        github: 'https://github.com/tony3129/Android-Store',
+        alt: 'Android Logo'
     }
 ]
 

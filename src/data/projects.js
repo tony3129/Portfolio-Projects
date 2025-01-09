@@ -32,8 +32,8 @@ const projects = [
     {
         title: 'Patient Triage System',
         desc: 'C++',
-        //taken from: https://www.bairesdev.com/blog/what-is-c-plus-plus/
-        img: './assets/c++Logo.avif',
+        //taken from: https://en.wikipedia.org/wiki/C%2B%2B
+        img: './assets/c++Logo.png',
         live: false,
         link: '',
         github: 'https://github.com/tony3129/Patient-Triage-System',

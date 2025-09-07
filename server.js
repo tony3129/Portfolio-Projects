@@ -15,12 +15,12 @@ const nodeMailer = require('nodemailer'); // move?
 require('pg');
 const sequelize = require('./db/connection.js');
 const itemStructure = require('./db/models/itemStructure.js') // move?
-const userStructure = require('./db/models/userStructure.js') // move?
 //bcrypt and clientSessions for login functionality
 //bcryptjs needed to work on vercel
-const bcrypt = require('bcryptjs'); // move?
 const clientSessions = require('client-sessions');
 const requireLogin = require('./middleware/wishListLogin.js');
+//import custom routes
+const authRoutes = require('./routes/authRoutes.js');
 
 const HTTP_PORT = process.env.PORT || 3000;
 
@@ -33,6 +33,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({extended:false}));
+
+//session setup
 app.use(clientSessions({
     cookieName: 'session',
     secret: process.env.CLIENT_SESSIONS_KEY,
@@ -55,6 +57,9 @@ sequelize.sync({force:false}).then(()=>{
 }).catch((err)=>{
     console.log('Unable to sync database: ' + err)
 })
+
+//routes
+app.use('/', authRoutes);
 
 
 app.get('/', (req,res)=>{
@@ -95,19 +100,6 @@ app.get('/snakeGame',(req,res)=>{
 
 app.get('/weatherApp',(req,res)=>{
     res.render('weather');
-})
-
-app.get('/login', (req,res)=>{
-    res.render('login', {message: ''});
-})
-
-app.get('/register', (req,res)=>{
-    res.render('register', {message: ''});
-})
-
-app.get('/logout', (req, res)=>{
-    req.session.reset();
-    res.redirect('/login');
 })
 
 app.get('/wishlist', requireLogin, async (req,res)=>{
@@ -151,54 +143,6 @@ app.post('/contact', (req, res) => {
             res.render('contact', {message: 'Error submitting form. Please try again later'});
         });
 });
-
-app.post('/register', async (req, res)=>{
-    //destructure information into variables
-    const { username, email, password } = req.body;
-
-    //hash password, then store in database
-    try {
-        const hashPassword = await bcrypt.hash(password, 10);
-        await userStructure.create({
-            userName: username,
-            email: email,
-            password: hashPassword
-        });
-        res.render('login', {message: 'Registration successful'});
-    } catch (err){
-        //reload register page with error message
-        console.log(err)
-        res.render('register', {message: 'Unable to register. Please try again later'})
-    }
-})
-//verify user credentials, start client session for user
-app.post('/login', async (req,res)=>{
-    const { username, password } = req.body;
-
-    try{
-        //search database for user
-        const user = await userStructure.findOne({ where: { userName: username } });
-
-        if(!user) {
-            res.render('login', { message: 'Invalid username or password'});
-        }
-        //see if password matches bcrypt hash
-        const passMatch = await bcrypt.compare(password, user.password);
-
-        if(!passMatch){
-            res.render('login', {message: 'Invalid username or password'});
-        }
-        //if user is found and passwords match, send to wishlist route with modified req params
-        req.session.user= {
-            userID: user.userID,
-            username: user.userName,
-        };
-        res.redirect('wishlist');
-    } catch (err) {
-        console.log(err);
-        res.render('login', {message: 'Error logging in. Please try again later'});
-    }
-})
 
 //if form is submitted, create a new entry
 app.post('/wishlist/add', async (req,res)=>{

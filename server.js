@@ -14,13 +14,14 @@ const nodeMailer = require('nodemailer'); // move?
 //require pg needed to work on vercel
 require('pg');
 const sequelize = require('./db/connection.js');
-const itemStructure = require('./db/models/itemStructure.js') // move?
 //bcrypt and clientSessions for login functionality
 //bcryptjs needed to work on vercel
 const clientSessions = require('client-sessions');
 const requireLogin = require('./middleware/wishListLogin.js');
+
 //import custom routes
 const authRoutes = require('./routes/authRoutes.js');
+const wishListRoutes = require('./routes/wishListRoutes.js');
 
 const HTTP_PORT = process.env.PORT || 3000;
 
@@ -60,6 +61,7 @@ sequelize.sync({force:false}).then(()=>{
 
 //routes
 app.use('/', authRoutes);
+app.use('/wishlist', requireLogin, wishListRoutes);
 
 
 app.get('/', (req,res)=>{
@@ -102,16 +104,6 @@ app.get('/weatherApp',(req,res)=>{
     res.render('weather');
 })
 
-app.get('/wishlist', requireLogin, async (req,res)=>{
-    try{
-        const items = await itemStructure.findAll({ where: { userID: req.session.user.userID}});
-        //pass all items found in database, and enable logout in 
-        res.render('wishList', {items: items});
-    } catch (err) {
-        console.log(err);
-    }
-})
-
 //for contact form submission, utilize nodeMailer to send info to my email
 app.post('/contact', (req, res) => {
     const { email, message } = req.body;
@@ -143,45 +135,6 @@ app.post('/contact', (req, res) => {
             res.render('contact', {message: 'Error submitting form. Please try again later'});
         });
 });
-
-//if form is submitted, create a new entry
-app.post('/wishlist/add', async (req,res)=>{
-    console.log(req.body);
-    const { title, desc, price, link } = req.body;
-
-    try{
-        //don't include itemID as its auto incremented
-        const newItem = await itemStructure.create({
-            title: title,
-            desc: desc,
-            price: price,
-            link: link,
-            userID: req.session.user.userID,
-        })
-        //send json response, so appending new card can be done
-        res.json(newItem);
-    } catch (err) {
-        console.log(err);
-    }
-})
-
-//allow deletion of items
-app.post('/wishlist/delete/:id', async (req,res)=>{
-    //delete based on itemID
-    const {id} = req.params;
-
-    try{
-        await itemStructure.destroy({
-            where: {itemID: id, userID: req.session.user.userID}
-        });
-        //redirect becomes redundant with jquery
-        res.redirect('/wishlist');
-    } catch(err){
-        console.log(err);
-        //redirect becomes redundant with jquery
-        res.redirect('/wishlist');
-    }
-})
 
 app.listen(HTTP_PORT, () => {
     console.log('Server is running on: ' + HTTP_PORT);

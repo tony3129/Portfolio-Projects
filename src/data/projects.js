@@ -1,5 +1,15 @@
 const projects = [
     {
+        title: 'Movie App',
+        desc: 'HTML, CSS, JavaScript, The Movie Database API, React, TailwindCSS, DaisyUI',
+        //taken from: https://www.canva.com/graphics/s/movie-icons/
+        img: './assets/movieLogo.webp',
+        live: true,
+        link: 'https://tonys-movies-app-frontend.onrender.com/',
+        github: 'https://github.com/tony3129/Movies',
+        alt: 'Movie App Logo'
+    },
+    {
         title: 'Snake Game',
         desc: 'HTML, CSS, JavaScript (Desktop Only)',
         //taken from: https://wallpapers.com/wallpapers/green-snake-game-character-bqvxt2p5oibadgqn.html

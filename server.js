@@ -9,16 +9,16 @@ const projects = require('./src/data/projects.js');
 //parser to get info sent in contact form
 const bodyParser = require('body-parser');
 //to be able to send emails from contact form
-const nodeMailer = require('nodemailer');
+const nodeMailer = require('nodemailer'); // move?
 //connection initialization and table structure
 //require pg needed to work on vercel
 require('pg');
 const sequelize = require('./db/connection.js');
-const itemStructure = require('./db/models/itemStructure.js')
-const userStructure = require('./db/models/userStructure.js')
+const itemStructure = require('./db/models/itemStructure.js') // move?
+const userStructure = require('./db/models/userStructure.js') // move?
 //bcrypt and clientSessions for login functionality
 //bcryptjs needed to work on vercel
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs'); // move?
 const clientSessions = require('client-sessions');
 const requireLogin = require('./middleware/wishListLogin.js');
 

@@ -8,9 +8,6 @@ const path = require('path');
 const projects = require('./src/data/projects.js');
 //parser to get info sent in contact form
 const bodyParser = require('body-parser');
-//to be able to send emails from contact form
-const nodeMailer = require('nodemailer'); // move?
-//connection initialization and table structure
 //require pg needed to work on vercel
 require('pg');
 const sequelize = require('./db/connection.js');
@@ -21,6 +18,7 @@ const requireLogin = require('./middleware/wishListLogin.js');
 
 //import custom routes
 const authRoutes = require('./routes/authRoutes.js');
+const pageRoutes = require('./routes/pageRoutes.js');
 const wishListRoutes = require('./routes/wishListRoutes.js');
 const contactRoutes = require('./routes/contactRoutes.js');
 
@@ -62,45 +60,9 @@ sequelize.sync({force:false}).then(()=>{
 
 //routes
 app.use('/', authRoutes);
+app.use('/', pageRoutes);
 app.use('/wishlist', requireLogin, wishListRoutes);
 app.use('/contact', contactRoutes);
-
-
-app.get('/', (req,res)=>{
-    res.render('index');
-});
-
-app.get('/liveDemo', (req,res)=>{
-    res.render('liveDemo', {projects});
-})
-
-app.get('/projects', (req,res)=>{
-    res.render('projects', {projects});
-})
-
-app.get('/resume', (req, res) => {
-    res.render('resume');
-});
-
-app.get('/about', (req,res)=>{
-    res.render('about');
-})
-
-app.get('/linkedin', (req,res)=>{
-    res.redirect('https://www.linkedin.com/in/tony-liu-11a791189/')
-})
-
-app.get('/github', (req,res)=>{
-    res.redirect('https://github.com/tony3129')
-})
-
-app.get('/snakeGame',(req,res)=>{
-    res.render('snake');
-})
-
-app.get('/weatherApp',(req,res)=>{
-    res.render('weather');
-})
 
 app.listen(HTTP_PORT, () => {
     console.log('Server is running on: ' + HTTP_PORT);

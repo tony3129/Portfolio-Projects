@@ -107,12 +107,12 @@ button,
 }
 
 #name {
-    font-family: "Doto", serif;
+    font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
     font-variation-settings:
-      "ROND" 0;
+        "wdth" 800;
     font-size: 65px;
 }
 
